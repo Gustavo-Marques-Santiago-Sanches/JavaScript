@@ -19,9 +19,9 @@ header{
     font-weight: bold;
 }
 
-hr{
+.linha_sup{
     background-color: brown;
-    width: 95.3%;
+    width: 94.3%;
 }
 
 .tabela{
@@ -38,4 +38,17 @@ thead{
 th,td{
     border: 1.5px solid rgba(128, 128, 128, 0.486);
     padding: 4px 135px;
+}
+
+.quant-invalida{
+    color: red;
+}
+
+.unit-invalida{
+    background-color: red;
+}
+
+.linha_encomenda{
+    width: 100%;
+    border: 1px solid  rgb(83, 23, 23);
 }
