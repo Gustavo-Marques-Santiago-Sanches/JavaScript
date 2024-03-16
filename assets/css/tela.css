@@ -52,3 +52,35 @@ th,td{
     width: 100%;
     border: 1px solid  rgb(83, 23, 23);
 }
+
+.item{
+    width: auto;
+    display: inline-block;
+    margin-left: 2.5%;
+    margin-right: 20%;
+    padding-top: 0.7%;
+    padding-bottom: 1%;
+}
+
+.campo{
+    display: flex;
+    height: 3%;
+    width: 315%;
+    font-weight: bold;
+}
+
+.label{
+    display: flex;
+    font-weight: bold;
+}
+
+.bot{
+    display: flex;
+    margin-left: 2.5%;
+    margin-top: 1.5%;
+    margin-bottom: 0%;
+    height: 4%;
+    width: 9.1%;
+    padding-left: 1.73%;
+    background-color: yellow;
+}

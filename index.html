@@ -15,7 +15,7 @@
             </div>
             <hr class = linha_sup>
             <div>
-                <table class="tabela">
+                <table id="tabela" class="tabela">
                     <thead>
                         <tr>
                             <th scope="col">Nome</th>
@@ -69,7 +69,31 @@
                 <h1 class="titulo">Adicionar nova encomenda</h1>
                 <hr class="linha_mid">
             </div>
+            <div>
+                    <div class="item">
+                        <label for="nome" class="label">Nome:</label>
+                        <input type="text" id="nome" class="campo" required placeholder="Digite o nome do(a) cliente">
+                    </div>
+                    
+                    <div class="item">
+                        <label for="produto" class="label">Produto:</label>
+                        <input type="text" id="produto" class="campo" required placeholder="Digite o produto solicitado">
+                    </div>
+
+                    <div class="item">
+                        <label for="quantidade" class="label">Quantidade:</label>
+                        <input type="number" id="quantidade" class="campo" required placeholder ="Digite a quantidade solicitada">
+                    </div>
+
+                    <div class="item">
+                        <label for="val_unit" class="label">Valor Unitário:</label>
+                        <input type="number" id="val_unit" class="campo" required placeholder ="Digite o valor unitário">
+                    </div>
+    
+                    <input id="bot" type="submit" value="Adicionar Pedido" class="bot">
+            </div>
         </main>
         <script src="assets/js/calcula_total.js"></script>
+        <script src="assets/js/add_tabela.js"></script>
     </body>
 </html>
