@@ -28,6 +28,33 @@ botaoAdd.addEventListener("click", function(event){
     linha.appendChild(colunaVal);
     linha.appendChild(colunaTotal);
 
+    if(validaEncomenda(encomenda).length > 0){
+        //Dados invalidos, exibe erro
+        console.log(validaEncomenda(encomenda));
+    }
+
+    //document.querySelector("#form-adiciona").reset();
+
     return tabela.appendChild(linha);
 });
 
+//Função para validar os dados da encomenda
+function validaEncomenda(dadosEncomenda){
+
+    var erros = []
+
+    if(dadosEncomenda.nome.length==0){
+        erros.push("O nome do cliente não pode ser vazio!");
+    }
+    if(dadosEncomenda.prod==0){
+        erros.push("Por favor, selecione um produto para essa encomanda.");
+    }
+    if(!validaQuant(dadosEncomenda.quant) || dadosEncomenda.quant <= 0){
+        erros.push("A quantidade é invalida!");
+    }
+    if(dadosEncomenda.val <=0 || isNaN(dadosEncomenda.val)){
+        erros.push("O valor unitario é invalido!");
+    }
+
+    return erros;
+}
