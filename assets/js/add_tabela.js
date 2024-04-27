@@ -1,60 +1,128 @@
-var botaoAdd = document.querySelector("#bot");
+var botaoAdicionar = document.querySelector("#bot");
 
-botaoAdd.addEventListener("click", function(event){
+botaoAdicionar.addEventListener("click", function(event){
+
     event.preventDefault();
-    
-    var nome = document.getElementById("nome").value;
-    var prod = document.getElementById("produto").value;
-    var quant = document.getElementById("quantidade").value;
-    var val = document.getElementById("val_unit").value;
-    var tabela = document.querySelector("#tabela");
 
-    var linha = document.createElement("tr");
-    var colunaNome = document.createElement("td");
-    var colunaProd = document.createElement("td");
-    var colunaQuant = document.createElement("td");
-    var colunaVal = document.createElement("td");
-    var colunaTotal = document.createElement("td");
+    //Captura o formulário da página
+    var form = document.querySelector("#form-adiciona");
 
-    colunaNome.textContent = nome;
-    colunaProd.textContent = prod;
-    colunaQuant.textContent = quant;
-    colunaVal.textContent = format(parseFloat(val));
-    colunaTotal.textContent = calculaTotal(quant, val);
+    //Captura os dados da nova encomenda
+    var encomenda = obtemEncomenda(form);
 
-    linha.appendChild(colunaNome);
-    linha.appendChild(colunaProd);
-    linha.appendChild(colunaQuant);
-    linha.appendChild(colunaVal);
-    linha.appendChild(colunaTotal);
+    //Valida os dados do formulario
+    var validacao = validaEncomenda(encomenda);
 
-    if(validaEncomenda(encomenda).length > 0){
-        //Dados invalidos, exibe erro
-        console.log(validaEncomenda(encomenda));
+    //Valida se a encomenda pode ser inserida
+    if(validacao.length > 0) {
+        //Há erros de preenchimento, informa para o usario
+        exibeMensagensErro(validacao);
+        return;
+    } else {
+        //Encomenda OK, insere na tabela
+        //Insere a nova encomenda na tabela
+        addEncomenda(encomenda);
+
+        //Limpa o formulário
+        form.reset();
+
+        //Limpa a lista de erros
+        document.querySelector("#mensagens-erro").innerHTML = "";
     }
-
-    //document.querySelector("#form-adiciona").reset();
-
-    return tabela.appendChild(linha);
+  
 });
 
-//Função para validar os dados da encomenda
-function validaEncomenda(dadosEncomenda){
+//Função para capturar os dados da nova encomenda
+function obtemEncomenda(dadosForm){
 
-    var erros = []
+    var encomenda = {
+        nome: dadosForm.nome.value,
+        qtde: dadosForm.quantidade.value,
+        produto: dadosForm.produto.value,
+        unitario: dadosForm.val_unit.value,
+    }
 
-    if(dadosEncomenda.nome.length==0){
-        erros.push("O nome do cliente não pode ser vazio!");
+    return encomenda;
+}
+
+//Função para adicionar a nova encomenda na tabela
+function addEncomenda(novaEncomenda){
+
+    var tabela = document.querySelector("#tabela");
+
+    tabela.appendChild(montaTR(novaEncomenda));
+}
+
+//Monta uma coluna nova
+function montaTD(dado) {
+
+    var td = document.createElement("td");
+    td.textContent = dado;
+
+    return td;
+}
+
+//Monta uma nova TR
+function montaTR(novaEncomenda){
+
+    var tr = document.createElement("tr");
+
+    tr.appendChild(montaTD(novaEncomenda.nome));
+    tr.appendChild(montaTD(novaEncomenda.produto));
+    tr.appendChild(montaTD(novaEncomenda.qtde));
+    tr.appendChild(montaTD(format(parseFloat(novaEncomenda.unitario))));
+    tr.appendChild(montaTD(calculaTotal(novaEncomenda.qtde, novaEncomenda.unitario)));
+
+    return tr;
+}
+
+//Função para validação da quantidade e do unitário
+function validaEncomenda(encomenda){
+
+    var erros =[];
+
+    //Verifica se o nome foi informado
+    if(encomenda.nome=="") {
+        erros.push("O nome não pode ser vazio!");
     }
-    if(dadosEncomenda.prod==0){
-        erros.push("Por favor, selecione um produto para essa encomanda.");
+
+    //Valida de o produto foi informado
+    if(encomenda.produto==0){
+        erros.push("Por favor, selecione um produto para a solicitação.");
     }
-    if(!validaQuant(dadosEncomenda.quant) || dadosEncomenda.quant <= 0){
-        erros.push("A quantidade é invalida!");
+
+    //Verifica se a quantidade é maior que zero e um número
+    if(encomenda.qtde <= 0 || isNaN(encomenda.qtde)){
+        erros.push("A quantidade deve ser numérica e maior que 0.");
     }
-    if(dadosEncomenda.val <=0 || isNaN(dadosEncomenda.val)){
-        erros.push("O valor unitario é invalido!");
+
+    //Verifica se o valor unitário é maior que zero e um número
+    if(encomenda.unitario <=0 || isNaN(encomenda.unitario)){
+        erros.push("O valor unitário deve ser numérico e maior que 0.");
     }
 
     return erros;
 }
+
+//Função para exibir os erros de preenchimento do formulario
+function exibeMensagensErro(msgs){
+    var ul = document.querySelector("#mensagens-erro");
+
+    //Limpa a UL
+    ul.innerHTML = "";
+
+    msgs.forEach(function(erro){
+        var li = document.createElement("li");
+        li.textContent = erro;
+        ul.appendChild(li);
+    })
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    var linhas = document.querySelectorAll("#tabela tr");
+    linhas.forEach(function(linha) {
+        linha.addEventListener("dblclick", function() {
+            this.remove();
+        });
+    });
+});

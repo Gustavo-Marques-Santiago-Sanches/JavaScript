@@ -84,3 +84,7 @@ th,td{
     padding-left: 1.73%;
     background-color: yellow;
 }
+
+#mensagens-erro{
+    color: red;
+}
