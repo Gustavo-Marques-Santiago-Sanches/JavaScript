@@ -69,7 +69,8 @@
                 <h1 class="titulo">Adicionar nova encomenda</h1>
                 <hr class="linha_mid">
             </div>
-            <div> <!--id='form-adiciona'-->
+            <ul id="mensagens-erro"></ul>
+            <form id="form-adiciona">
                     <div class="item">
                         <label for="nome" class="label">Nome:</label>
                         <input type="text" id="nome" class="campo" required placeholder="Digite o nome do(a) cliente">
@@ -77,7 +78,14 @@
                     
                     <div class="item">
                         <label for="produto" class="label">Produto:</label>
-                        <input type="text" id="produto" class="campo" required placeholder="Digite o produto solicitado">
+                        <select id="produto" class="campo">
+                            <option value="">Selecione o produto </option>
+						<option>CQ da Casa</option>
+						<option>CQ Especial</option>
+						<option>CQ Padrão</option>
+						<option>CQ Vegano</option>
+                        <option>Double CQ</option>
+                        </select>    
                     </div>
 
                     <div class="item">
@@ -91,7 +99,7 @@
                     </div>
     
                     <input id="bot" type="submit" value="Adicionar Pedido" class="bot">
-            </div>
+            </form>
         </main>
         <script src="assets/js/add_tabela.js"></script>
         <script src="assets/js/calcula_total.js"></script>
