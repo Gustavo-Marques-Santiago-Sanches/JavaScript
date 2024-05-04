@@ -117,12 +117,3 @@ function exibeMensagensErro(msgs){
         ul.appendChild(li);
     })
 }
-
-document.addEventListener("DOMContentLoaded", function() {
-    var linhas = document.querySelectorAll("#tabela tr");
-    linhas.forEach(function(linha) {
-        linha.addEventListener("dblclick", function() {
-            this.remove();
-        });
-    });
-});

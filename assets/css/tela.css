@@ -21,7 +21,7 @@ header{
 
 .linha_sup{
     background-color: brown;
-    width: 94.3%;
+    width: 95%;
 }
 
 .tabela{
@@ -51,6 +51,10 @@ th,td{
 .linha_encomenda{
     width: 100%;
     border: 1px solid  rgb(83, 23, 23);
+}
+
+.linha_mid{
+    width: 95%;
 }
 
 .item{
@@ -87,4 +91,9 @@ th,td{
 
 #mensagens-erro{
     color: red;
+}
+
+.fadeOut{
+    opacity: 0;
+    transition: 1s;
 }
