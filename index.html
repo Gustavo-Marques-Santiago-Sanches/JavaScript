@@ -14,48 +14,52 @@
                 <h1>Lista de Encomendas</h1>
             </div>
             <hr class = linha_sup>
+            <div class="Filtrar">
+                <label for="filtraTabela">Filtrar</label>
+                <input type="text" id="filtrar-tabela" placeholder="Digite o nome do cliente">
+            </div>
             <div>
                 <table id="tabela" class="tabela">
                     <thead>
                         <tr>
-                            <th scope="col">Nome</th>
-                            <th scope="col">Produto</th>
-                            <th scope="col">Quantidade</th>
-                            <th scope="col">Valor Unitario</th>
-                            <th scope="col">Total</th>
+                            <th>Nome</th>
+                            <th>Produto</th>
+                            <th>Quantidade</th>
+                            <th>Valor Unitario</th>
+                            <th>Total</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr class="cliente">
-                            <td scope="row">Margarete</th>
+                            <td class="info-nome">Margarete</th>
                             <td>CQ da Casa</td>
                             <td class="quant">-2</td>
                             <td class="valor">12</td>
                             <td class="total">-</td>
                         </tr>
                         <tr class="cliente">
-                            <td scope="row">Douglas</th>
+                            <td class="info-nome">Douglas</th>
                             <td>CQ Especial</td>
                             <td class="quant">5</td>
                             <td class="valor">-2</td>
                             <td class="total">-</td>
                         </tr>
                         <tr class="cliente">
-                            <td scope="row">João</th>
+                            <td class="info-nome">João</th>
                             <td>CQ Padrão</td>
                             <td class="quant">1</td>
                             <td class="valor">9</td>
                             <td class="total">-</td>
                         </tr>
                         <tr class="cliente">
-                            <td scope="row">Marcelo</th>
+                            <td class="info-nome">Marcelo</th>
                             <td>CQ Vegano</td>
                             <td class="quant">3</td>
                             <td class="valor">15</td>
                             <td class="total">-</td>
                         </tr>
                         <tr class="cliente">
-                            <td scope="row">Rafaela</th>
+                            <td class="info-nome">Rafaela</th>
                             <td>Double CQ</td>
                             <td class="quant">2</td>
                             <td class="valor">16</td>
@@ -104,5 +108,6 @@
         <script src="assets/js/remover_linha.js"></script>
         <script src="assets/js/add_tabela.js"></script>
         <script src="assets/js/calcula_total.js"></script>
+        <script src="assets/js/filtrar.js"></script>
     </body>
 </html>

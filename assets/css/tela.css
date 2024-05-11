@@ -24,6 +24,16 @@ header{
     width: 95%;
 }
 
+.Filtrar{
+    margin-left: 2.5%;
+}
+
+.filtrar-tabela{
+    width: 19.5%;
+    height: 35px;
+    margin-bottom: 10px;
+}
+
 .tabela{
     border-collapse: collapse;
     border: 2px solid black;
@@ -37,7 +47,7 @@ thead{
 
 th,td{
     border: 1.5px solid rgba(128, 128, 128, 0.486);
-    padding: 4px 135px;
+    padding: 4px 127px;
 }
 
 .quant-invalida{
@@ -96,4 +106,8 @@ th,td{
 .fadeOut{
     opacity: 0;
     transition: 1s;
+}
+
+.invisivel{
+    display: none;
 }
