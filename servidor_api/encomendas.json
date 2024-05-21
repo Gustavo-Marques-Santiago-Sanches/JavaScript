@@ -1,0 +1,39 @@
+{
+    "encomendas": [
+        {
+            "nome": "Bruce Wayne",
+            "produto": "CQ da Casa",
+            "qtde": 4,
+            "unitario": 12,
+            "total": 0
+        },
+        {
+            "nome": "Adam Sandler",
+            "produto": "Double CQ",
+            "qtde": 2,
+            "unitario": 16,
+            "total": 0
+        },
+        {
+            "nome": "Naruto",
+            "produto": "CQ Padrão",
+            "qtde": 10,
+            "unitario": 9,
+            "total": 0
+        },
+        {
+            "nome": "Flappy Jack",
+            "produto": "CQ Especial",
+            "qtde": 1,
+            "unitario": 17,
+            "total": 0
+        },
+        {
+            "nome": "Guilherme Donatangello",
+            "produto": "CQ Vegano",
+            "qtde": 3,
+            "unitario": 16,
+            "total": 0
+        }
+    ]
+}
