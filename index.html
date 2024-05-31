@@ -1,5 +1,6 @@
 <html>
     <head>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <link rel="stylesheet" href="assets/css/tela.css">
         <title>Inicio</title>
     </head>
@@ -15,8 +16,8 @@
             </div>
             <hr class = linha_sup>
             <div class="Filtrar">
-                <label for="filtraTabela">Filtrar</label>
-                <input type="text" id="filtrar-tabela" placeholder="Digite o nome do cliente">
+                <label class="filtrar-tabela" for="filtraTabela">Filtrar:</label>
+                <input type="text" id="filtrar-tabela" placeholder="Digite o nome do cliente" class="filtro">
             </div>
             <div>
                 <table id="tabela" class="tabela">
@@ -32,42 +33,42 @@
                     <tbody>
                         <tr class="cliente">
                             <td class="info-nome">Margarete</th>
-                            <td>CQ da Casa</td>
+                            <td class="info-produto">CQ da Casa</td>
                             <td class="quant">-2</td>
                             <td class="valor">12</td>
                             <td class="total">-</td>
                         </tr>
                         <tr class="cliente">
                             <td class="info-nome">Douglas</th>
-                            <td>CQ Especial</td>
+                            <td class="info-produto">CQ Especial</td>
                             <td class="quant">5</td>
                             <td class="valor">-2</td>
                             <td class="total">-</td>
                         </tr>
                         <tr class="cliente">
                             <td class="info-nome">João</th>
-                            <td>CQ Padrão</td>
+                            <td class="info-produto">CQ Padrão</td>
                             <td class="quant">1</td>
                             <td class="valor">9</td>
                             <td class="total">-</td>
                         </tr>
                         <tr class="cliente">
                             <td class="info-nome">Marcelo</th>
-                            <td>CQ Vegano</td>
+                            <td class="info-produto">CQ Vegano</td>
                             <td class="quant">3</td>
                             <td class="valor">15</td>
                             <td class="total">-</td>
                         </tr>
                         <tr class="cliente">
                             <td class="info-nome">Rafaela</th>
-                            <td>Double CQ</td>
+                            <td class="info-produto">Double CQ</td>
                             <td class="quant">2</td>
                             <td class="valor">16</td>
                             <td class="total">-</td>
                         </tr>
                     </tbody>
                 </table>
-                <button id="buscar-encomendas" class="bot">Buscar Encomendas</button>
+                <button id="buscar-encomendas" class="bot-search">Buscar Encomendas</button>
             </div>
             <div>
                 <hr class="linha_encomenda">
@@ -103,13 +104,15 @@
                         <input type="number" id="val_unit" class="campo" required placeholder ="Digite o valor unitário">
                     </div>
     
-                    <input id="bot" type="submit" value="Adicionar Pedido" class="bot">
+                    <input id="bot" type="submit" value="Adicionar Pedido" class="bot-add">
             </form>
+            <div id="piechart_3d" class="graph"></div>
         </main>
         <script src="assets/js/remover_linha.js"></script>
+        <script src="assets/js/API.js"></script>
         <script src="assets/js/add_tabela.js"></script>
+        <script src="assets/js/buscar_encomenda.js"></script>
         <script src="assets/js/calcula_total.js"></script>
         <script src="assets/js/filtrar.js"></script>
-        <script src="assets/js/buscar_encomenda.js"></script>
     </body>
 </html>

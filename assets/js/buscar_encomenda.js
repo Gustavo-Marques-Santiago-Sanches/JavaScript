@@ -11,7 +11,10 @@ botaoBuscar.addEventListener("click", function(){
             addEncomenda(cada_encomenda);
         });
 
-
+        att_graf();
     })
     xhr.send();
 })
+
+/*npm install -g json-server*/
+/*npx json-server encomendas.json*/

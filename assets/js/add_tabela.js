@@ -28,8 +28,9 @@ botaoAdicionar.addEventListener("click", function(event){
 
         //Limpa a lista de erros
         document.querySelector("#mensagens-erro").innerHTML = "";
+
+        att_graf();
     }
-  
 });
 
 //Função para capturar os dados da nova encomenda
@@ -54,10 +55,11 @@ function addEncomenda(novaEncomenda){
 }
 
 //Monta uma coluna nova
-function montaTD(dado) {
+function montaTD(dado, style) {
 
     var td = document.createElement("td");
     td.textContent = dado;
+    td.classList.add(style);
 
     return td;
 }
@@ -67,11 +69,13 @@ function montaTR(novaEncomenda){
 
     var tr = document.createElement("tr");
 
-    tr.appendChild(montaTD(novaEncomenda.nome));
-    tr.appendChild(montaTD(novaEncomenda.produto));
-    tr.appendChild(montaTD(novaEncomenda.qtde));
-    tr.appendChild(montaTD(format(parseFloat(novaEncomenda.unitario))));
-    tr.appendChild(montaTD(calculaTotal(novaEncomenda.qtde, novaEncomenda.unitario)));
+    tr.appendChild(montaTD(novaEncomenda.nome, "info-nome"));
+    tr.appendChild(montaTD(novaEncomenda.produto, "info-produto"));
+    tr.appendChild(montaTD(novaEncomenda.qtde, "quant"));
+    tr.appendChild(montaTD(format(parseFloat(novaEncomenda.unitario)), "valor"));
+    tr.appendChild(montaTD(calculaTotal(novaEncomenda.qtde, novaEncomenda.unitario), "total"));
+
+    tr.classList.add("cliente");
 
     return tr;
 }
